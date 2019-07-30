@@ -23,7 +23,7 @@ EOF
 #success1=$?
 
 kubectl run curl --image=opensona/router-docker
-sleep 5
+sleep 10
 ! kubectl exec $(kubectl get pods -o name | grep -m1 curl | cut -d'/' -f 2) -- curl --max-time 5 -s -o /dev/null -w "%{http_code}" www.google.com
 success1=$?
 
